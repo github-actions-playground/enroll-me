@@ -46,7 +46,7 @@ async def on_issue_commented(
     )
 
     await gh_api.post(
-        f'comment["url"]/reactions',
+        f'{comment["url"]}/reactions',
         preview_api_version='squirrel-girl',
         data={'content': 'eyes'},
     )
@@ -98,7 +98,7 @@ async def on_issue_commented(
             data={'name': repo_name},
         )
         await gh_api.post(
-            f'comment["url"]/reactions',
+            f'{comment["url"]}/reactions',
             preview_api_version='squirrel-girl',
             data={'content': 'hooray'},
         )
@@ -114,7 +114,7 @@ async def on_issue_commented(
             gh_exc.errors,
         )
         await gh_api.post(
-            f'comment["url"]/reactions',
+            f'{comment["url"]}/reactions',
             preview_api_version='squirrel-girl',
             data={'content': 'confused'},
         )
@@ -132,7 +132,7 @@ async def on_issue_commented(
         )
     else:
         await gh_api.post(
-            f'comment["url"]/reactions',
+            f'{comment["url"]}/reactions',
             preview_api_version='squirrel-girl',
             data={'content': 'rocket'},
         )
