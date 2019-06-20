@@ -27,6 +27,7 @@ async def on_issue_commented(
     gh_api = RUNTIME_CONTEXT.app_installation_client
     bot_sign = '\n\n--🤖'
 
+    is_bot_comment = sender['type'] == 'Bot'
     is_pr_comment = 'pull_request' in issue
     issue_title = issue['title']
     comment_author = comment['user']['login']
@@ -34,6 +35,11 @@ async def on_issue_commented(
     if is_pr_comment:
         """Only react to comments to issues, not PRs."""
         logger.info('This is a PR comment, skipping')
+        return
+
+    if is_bot_comment:
+        """Only react to comments from user accounts, not bots."""
+        logger.info('This is a bot comment, skipping')
         return
 
     config = await get_installation_config()
