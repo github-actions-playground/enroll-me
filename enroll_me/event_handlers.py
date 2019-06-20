@@ -45,11 +45,11 @@ async def on_issue_commented(
         '-'.join(issue_title.lower().split()),
     )
 
-    await gh_api.post(
-        f'comment["url"]/reactions',
-        preview_api_version='squirrel-girl',
-        data={'content': 'eyes'},
-    )
+    # await gh_api.post(
+    #     f'comment["url"]/reactions',
+    #     preview_api_version='squirrel-girl',
+    #     data={'content': 'eyes'},
+    # )
 
     reaction_comment = await gh_api.post(
         issue['comments_url'],
@@ -97,11 +97,11 @@ async def on_issue_commented(
             organization["repos_url"],
             data={'name': repo_name},
         )
-        await gh_api.post(
-            f'comment["url"]/reactions',
-            preview_api_version='squirrel-girl',
-            data={'content': 'hooray'},
-        )
+        # await gh_api.post(
+        #     f'comment["url"]/reactions',
+        #     preview_api_version='squirrel-girl',
+        #     data={'content': 'hooray'},
+        # )
         await gh_api.put(
             f'repo["collaborators_url"]/{comment_author}',
             data={'permission': 'admin'},
@@ -113,11 +113,11 @@ async def on_issue_commented(
             repo_name,
             gh_exc.errors,
         )
-        await gh_api.post(
-            f'comment["url"]/reactions',
-            preview_api_version='squirrel-girl',
-            data={'content': 'confused'},
-        )
+        # await gh_api.post(
+        #     f'comment["url"]/reactions',
+        #     preview_api_version='squirrel-girl',
+        #     data={'content': 'confused'},
+        # )
         await gh_api.patch(
             reaction_comment['url'],
             data={
@@ -131,11 +131,11 @@ async def on_issue_commented(
             },
         )
     else:
-        await gh_api.post(
-            f'comment["url"]/reactions',
-            preview_api_version='squirrel-girl',
-            data={'content': 'rocket'},
-        )
+        # await gh_api.post(
+        #     f'comment["url"]/reactions',
+        #     preview_api_version='squirrel-girl',
+        #     data={'content': 'rocket'},
+        # )
         await gh_api.patch(
             reaction_comment['url'],
             data={
