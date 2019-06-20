@@ -109,7 +109,7 @@ async def on_issue_commented(
             data={'content': 'hooray'},
         )
         await gh_api.put(
-            f'repo["collaborators_url"]/{comment_author}',
+            f'{repo["collaborators_url"]}/{comment_author}',
             data={'permission': 'admin'},
         )
     except InvalidField as gh_exc:
