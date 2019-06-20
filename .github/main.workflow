@@ -8,6 +8,7 @@ workflow "Create a repo for commenter" {
 
 action "Enroll the commenter" {
   uses = "./"
+  secrets = ["GITHUB_TOKEN"]
 }
 
 action "Debug" {
