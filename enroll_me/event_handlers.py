@@ -145,8 +145,11 @@ async def on_issue_commented(
         await gh_api.patch(
             reaction_comment['url'],
             data={
-                'body':
-                f'@{comment_author} Here\'s your repo: '
-                f'{repo["html_url"]}{bot_sign}',
+                'body': (
+                    f'@{comment_author} All done! '
+                    'Your repo has been created! '
+                    'Make sure you accept the organization invite. '
+                    f'{repo["html_url"]}{bot_sign} '
+                ),
             },
         )
