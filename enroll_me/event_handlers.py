@@ -148,7 +148,8 @@ async def on_issue_commented(
                 'body': (
                     f'@{comment_author} All done! '
                     'Your repo has been created! '
-                    'Make sure you accept the organization invite. '
+                    'Make sure you accept [the repository invite]'
+                    f'({repo["html_url"]}/invitations). '
                     f'{repo["html_url"]}{bot_sign} '
                 ),
             },
